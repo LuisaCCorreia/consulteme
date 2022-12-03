@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from '../../Paginas/Login';
-import Atendentes from "../../Paginas/Atendentes";
+import Atendentes from "../../Paginas/Atendentes/Atendentes";
 import Consultas from "../../Paginas/Consultas";
 import Medicos from "../../Paginas/Medicos";
 import Pacientes from "../../Paginas/Pacientes";

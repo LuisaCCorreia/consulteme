@@ -1,9 +1,13 @@
 import React from 'react';
 import Rotas from './Layout/Navbar/Routes';
+import './App.css';
 
 function App() {
   return (
-    <Rotas/>
+    <div className='background-color:aqua'>
+      <Rotas/>
+    </div>
+    
   );
 }
 
