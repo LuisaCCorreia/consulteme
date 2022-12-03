@@ -29,7 +29,7 @@
 
 .botaoEditar:hover {
     cursor: pointer;
-    background-color: rgb(4, 66, 4);
+    background-color: darkgreen;
 }
 .botaoApagar {
     float: right;
@@ -43,7 +43,7 @@
 
 .botaoApagar:hover {
     cursor: pointer;
-    background-color: rgb(206, 6, 6);
+    background-color: darkred
 }
 
 .botaoAdicionar {
@@ -56,7 +56,7 @@
     width: 40px;
 }
 
-.botaoEditar:hover {
+.botaoAdicionar:hover {
     cursor: pointer;
-    background-color: rgb(21, 131, 125);
+    background-color:darkcyan;
 }
