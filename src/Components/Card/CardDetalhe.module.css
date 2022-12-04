@@ -1,0 +1,62 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+    margin-left: 500px;
+    margin-top: 25px;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 12px;
+    display: inline-block;
+    padding-bottom: 20px;
+    font-size: medium;    
+}
+
+.card2 {
+    padding: 2px 16px;
+}
+
+.botaoEditar {
+    float: right;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 0px 10px 10px 0px;;
+    height: 35px;
+    width: 40px;
+}
+
+.botaoEditar:hover {
+    cursor: pointer;
+    background-color: darkgreen;
+}
+.botaoApagar {
+    float: right;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px 0px 0px 10px;
+    height: 35px;
+    width: 40px;
+}
+
+.botaoApagar:hover {
+    cursor: pointer;
+    background-color: darkred
+}
+
+.botaoAdicionar {
+    float: right;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    height: 35px;
+    width: 40px;
+}
+
+.botaoAdicionar:hover {
+    cursor: pointer;
+    background-color:darkcyan;
+}

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from '../../Paginas/Login/Login';
 import Atendentes from "../../Paginas/Atendentes/Atendentes";
+import DetalheAtendente from "../../Paginas/Atendentes/DetalheAtendente";
 import Consultas from "../../Paginas/Consultas/Consultas";
 import Medicos from "../../Paginas/Medicos/Medicos";
 import Pacientes from "../../Paginas/Pacientes/Pacientes";
@@ -15,6 +16,7 @@ function Rotas(){
             <Routes>
                 <Route path="/"  element={<Login setAuth={setAuth}/>}/>
                 <Route path="/atendentes" element={<Atendentes/>}/>
+                <Route path="/atendentes/:id" element={<DetalheAtendente/>}/>
                 <Route path="/consultas" element={<Consultas/>}/>
                 <Route path="/medicos" element={<Medicos/>}/>
                 <Route path="/pacientes" element={<Pacientes/>}/>
