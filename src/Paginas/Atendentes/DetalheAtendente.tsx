@@ -1,28 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillDelete, AiOutlineEdit } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import styles from '../../Components/Card/CardDetalhe.module.css'
-import CardDetalhe from '../../Components/Card/CardDetalhe'
+import CardDetalhe from '../../Components/Card/CardDetalhe';
+import Modal from "../../Components/Modal/Modal";
 
 function DetalheAtendente() {
+    const [show, setShow] = useState<boolean>(false)
     const {id} = useParams();
     console.log("Params:", id)
     const atendentes = require('../../BD/Atendente.json');
 
     const botoes = (
         <div>
-            <button className={styles.botaoEditar}><AiOutlineEdit/></button>
+            <button onClick={() => {setShow(true)}} className={styles.botaoEditar}><AiOutlineEdit/></button>
             <button className={styles.botaoApagar}><AiFillDelete/></button>
         </div>
     )
 
     return(
-        <CardDetalhe
-            regiao="Atendente"
-            nomeCompleto={atendentes[ parseInt(id as string)].nomeCompleto}
-            email={atendentes[ parseInt(id as string)].email}
-            botoes={botoes}
-        />
+        <div>
+            <CardDetalhe
+                regiao="Atendente"
+                nomeCompleto={atendentes[ parseInt(id as string)].nomeCompleto}
+                email={atendentes[ parseInt(id as string)].email}
+                botoes={botoes}
+            />
+            
+            <Modal 
+                nomeAtual={atendentes[ parseInt(id as string)].nomeCompleto} 
+                emailAtual={atendentes[ parseInt(id as string)].email}
+                setShow={setShow}
+                show={show}
+            />
+        </div>
     )
 }
 

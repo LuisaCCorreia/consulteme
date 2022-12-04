@@ -1,0 +1,75 @@
+.modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_content {
+    width: 500px;
+    background-color: #fff;
+}
+
+.modal_header {
+    background-color: lightgreen;
+    padding: 10px;
+    border-bottom: 1px solid;
+    margin-bottom: 30px;
+}
+
+.modal_title {
+    margin: 0;
+    font-size: 25px;
+}
+
+.modal_body {
+    padding: 10px;
+    border-bottom: 1px solid;
+}
+
+.conteudo input{
+    display: block;
+    margin-bottom: 25px;
+    margin-left: 85px;
+    font-size: 18px;
+    width: 300px;
+}
+
+.modal_footer {
+    padding: 10px;
+    float: right;
+}
+
+.modal_footer button {
+    margin-right: 15px;
+    border: none;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fechar {
+    background-color: red;
+    color: white;
+}
+
+.fechar:hover {
+    background-color: lightcoral;
+    color: black;
+}
+
+.salvar {
+    background-color:cornflowerblue;
+    color: black;
+}
+
+.salvar:hover {
+    background-color:blue;
+    color: white;
+}
