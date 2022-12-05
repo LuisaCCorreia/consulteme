@@ -26,7 +26,7 @@ function DetalheMedico() {
                 receita={consultas[ parseInt(id as string)].receita}            
             />
             
-            <Modal 
+            <Modal criar={()=>{}}
                 nomeAtual={consultas[ parseInt(id as string)].nomeCompleto} 
                 emailAtual={consultas[ parseInt(id as string)].email}
                 senhaAtual = {consultas[ parseInt(id as string)].senha}

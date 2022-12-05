@@ -26,7 +26,7 @@ function DetalheMedico() {
                 botoes={botoes}
             />
             
-            <Modal 
+            <Modal criar={()=>{}}
                 nomeAtual={medicos[ parseInt(id as string)].nomeCompleto} 
                 emailAtual={medicos[ parseInt(id as string)].email}
                 senhaAtual = {medicos[ parseInt(id as string)].senha}

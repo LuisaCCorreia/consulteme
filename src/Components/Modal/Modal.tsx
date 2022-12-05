@@ -5,14 +5,15 @@ interface ModalProps {
     nomeAtual?: string,
     emailAtual?: string,
     senhaAtual?:string,
+    criar:Function,
     setShow:Function,
     show:boolean
 }
 
-function Modal({nomeAtual, emailAtual, senhaAtual,setShow, show}:ModalProps) {
+function Modal({nomeAtual, emailAtual, senhaAtual,criar, setShow, show}:ModalProps) {
     const [nome, setNome] = useState<string>(nomeAtual?nomeAtual:"");
     const [email, setEmail] = useState<string>(emailAtual?emailAtual:"");
-    const [senha, setSenha] = useState(senhaAtual?senhaAtual:"");
+    const [senha, setSenha] = useState<string>(senhaAtual?senhaAtual:"");
 
     if(!show) {
         return null;
@@ -41,7 +42,7 @@ function Modal({nomeAtual, emailAtual, senhaAtual,setShow, show}:ModalProps) {
 
                         <input
                             placeholder="Senha"
-                            type="text"
+                            type="password"
                             value={senha}
                             onChange={(e) => {setSenha(e.target.value)}}
                         />
@@ -49,7 +50,10 @@ function Modal({nomeAtual, emailAtual, senhaAtual,setShow, show}:ModalProps) {
                 </div>
                 <div className={styles.modal_footer}>
                     <button className={styles.fechar} onClick={() => {setShow(false)}}>Fechar</button>
-                    <button className={styles.salvar}>Salvar</button>
+                    <button className={styles.salvar} onClick={()=>{
+                        criar(email, senha, nome)
+                        setShow(false)
+                        }}>Salvar</button>
                 </div>
             </div>
         </div>

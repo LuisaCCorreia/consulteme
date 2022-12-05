@@ -26,7 +26,8 @@ function DetalheAtendente() {
                 botoes={botoes}
             />
             
-            <Modal 
+        
+            <Modal criar={()=>{}}
                 nomeAtual={atendentes[ parseInt(id as string)].nomeCompleto} 
                 emailAtual={atendentes[ parseInt(id as string)].email}
                 senhaAtual = {atendentes[ parseInt(id as string)].senha}

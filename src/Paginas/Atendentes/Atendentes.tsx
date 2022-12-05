@@ -5,7 +5,7 @@ import axios from "axios";
 
 interface Atendente {
     id: string,
-    nomeCompleto:string,
+    nome:string,
     email:string
 }
 
@@ -15,24 +15,25 @@ function Atendentes(){
 
     async function carregarTodosAtendentes() {
 
-        const response = await axios.get('localhost:8080/api/v1/gerente/buscar-atendente');
+        const response = await axios.get('http://localhost:8080/api/v1/gerente/buscar-atendente');
 
-        setListaAtendentes(response)
+        setListaAtendentes(response.data)
     }
 
     useEffect(()=>{
         carregarTodosAtendentes();
-    })
+    },[])
 
+    console.log(listaAtendentes)
     return(
         <div>
-            <BarraBusca/>                 
+            <BarraBusca regiao={"Atendentes"}/>                 
             {listaAtendentes.length >0 && listaAtendentes.map((item:Atendente, key:number) => {
                 return(
                    <Card 
                         key={key}
                         id={item.id}
-                        nomeCompleto={item.nomeCompleto}
+                        nomeCompleto={item.nome}
                         email={item.email} 
                         regiao={"Atendente"}                   
                     />

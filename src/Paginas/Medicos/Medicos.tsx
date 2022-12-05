@@ -14,7 +14,7 @@ interface Medico {
 
 function Medicos() {
     return(<div>
-        <BarraBusca/>                 
+        <BarraBusca regiao="Médicos"/>                 
         {listaMedicos.length > 0 && listaMedicos.map((item:Medico, key:number) => {
             return(
                <Card 

@@ -15,7 +15,7 @@ interface Paciente {
 function Pacientes () {
     return(
         <div>
-            <BarraBusca/>                 
+            <BarraBusca regiao={"Pacientes"}/>                 
             {listaPacientes.length > 0 && 
                 listaPacientes.map(({
                     cpf, 
