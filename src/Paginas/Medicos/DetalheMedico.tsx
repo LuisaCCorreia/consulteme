@@ -5,10 +5,10 @@ import styles from '../../Components/Card/CardDetalhe.module.css'
 import CardDetalhe from '../../Components/Card/CardDetalhe';
 import Modal from "../../Components/Modal/Modal";
 
-function DetalheAtendente() {
+function DetalheMedico() {
     const [show, setShow] = useState<boolean>(false)
     const {id} = useParams();
-    const atendentes = require('../../BD/Atendente.json');
+    const medicos = require('../../BD/Medico.json');
 
     const botoes = (
         <div>
@@ -20,16 +20,16 @@ function DetalheAtendente() {
     return(
         <div>
             <CardDetalhe
-                regiao="Atendente"
-                nomeCompleto={atendentes[ parseInt(id as string)].nomeCompleto}
-                email={atendentes[ parseInt(id as string)].email}
+                regiao="Médico"
+                nomeCompleto={medicos[ parseInt(id as string)].nomeCompleto}
+                email={medicos[ parseInt(id as string)].email}
                 botoes={botoes}
             />
             
             <Modal 
-                nomeAtual={atendentes[ parseInt(id as string)].nomeCompleto} 
-                emailAtual={atendentes[ parseInt(id as string)].email}
-                senhaAtual = {atendentes[ parseInt(id as string)].senha}
+                nomeAtual={medicos[ parseInt(id as string)].nomeCompleto} 
+                emailAtual={medicos[ parseInt(id as string)].email}
+                senhaAtual = {medicos[ parseInt(id as string)].senha}
                 setShow={setShow}
                 show={show}
             />
@@ -37,4 +37,4 @@ function DetalheAtendente() {
     )
 }
 
-export default DetalheAtendente;
+export default DetalheMedico;

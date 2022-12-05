@@ -62,6 +62,7 @@
 .fechar:hover {
     background-color: lightcoral;
     color: black;
+    cursor: pointer;
 }
 
 .salvar {
@@ -72,4 +73,5 @@
 .salvar:hover {
     background-color:blue;
     color: white;
+    cursor: pointer;
 }

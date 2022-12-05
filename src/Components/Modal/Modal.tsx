@@ -4,13 +4,15 @@ import styles from './Modal.module.css'
 interface ModalProps {
     nomeAtual?: string,
     emailAtual?: string,
+    senhaAtual?:string,
     setShow:Function,
     show:boolean
 }
 
-function Modal({nomeAtual, emailAtual, setShow, show}:ModalProps) {
+function Modal({nomeAtual, emailAtual, senhaAtual,setShow, show}:ModalProps) {
     const [nome, setNome] = useState<string>(nomeAtual?nomeAtual:"");
     const [email, setEmail] = useState<string>(emailAtual?emailAtual:"");
+    const [senha, setSenha] = useState(senhaAtual?senhaAtual:"");
 
     if(!show) {
         return null;
@@ -35,6 +37,13 @@ function Modal({nomeAtual, emailAtual, setShow, show}:ModalProps) {
                             type="text"
                             value={email}
                             onChange={(e) => {setEmail(e.target.value)}}
+                        />
+
+                        <input
+                            placeholder="Senha"
+                            type="text"
+                            value={senha}
+                            onChange={(e) => {setSenha(e.target.value)}}
                         />
                     </form>
                 </div>

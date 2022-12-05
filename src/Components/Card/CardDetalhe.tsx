@@ -8,7 +8,6 @@ interface CardStateProps {
     botoes:any
 }
 
-
 function Card(props: CardStateProps) {
 
     return (

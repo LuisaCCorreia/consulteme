@@ -2,7 +2,7 @@
   margin-bottom: 50px;
 }
 
-.ul {
+.navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -10,11 +10,11 @@
   background-color: #333;
 }
 
-.li {
+.navbar ul li {
   float: left;
 }
 
-.li a {
+.navbar ul li a {
   display: inline-block;
   color: white;
   font-size: large;
@@ -23,6 +23,18 @@
   text-decoration: none;
 }
 
-.li a:hover {
+.teste {
+  float: right;
+}
+.navbar ul li button {
+  background-color: grey;
+  color: white;
+  font-size: large;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
   background-color: #111;
 }

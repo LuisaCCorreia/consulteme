@@ -3,27 +3,25 @@ import styles from './Card.module.css'
 import {AiOutlineEye} from 'react-icons/ai'
 import { useNavigate } from "react-router-dom";
 
-type Regiao = "Atendente" | "Médico" | "Paciente" | "Consulta";
 
 interface CardStateProps {
-    regiao: Regiao,
-    id: string,
+    cpf: string,
     nomeCompleto:string,
-    email:string
+    dataNascimento: Date,
+    endereco: string,
+    telefone: number,
+    doencaCronica?: string
     key: number
 }
 
 
 function Card(props: CardStateProps) {
 
-    const navigate = useNavigate();
+const navigate = useNavigate();
+    const dataFormatada = `${props.dataNascimento.getDate()}/${props.dataNascimento.getMonth()}/${props.dataNascimento.getFullYear()}`;
 
     function onClick() {
-        if(props.regiao === "Atendente") {
-            navigate(`/atendentes/${props.id}`)
-        } else if (props.regiao === "Médico") {
-            navigate(`/medicos/${props.id}`)
-        }
+       navigate(`/pacientes/${props.cpf}`)
         
     }
 
@@ -31,7 +29,12 @@ function Card(props: CardStateProps) {
         <div key={props.key} className={styles.card}>
             <div className={styles.card2}>
                 <p>Nome completo: {props.nomeCompleto}</p>
-                <p>E-mail: {props.email}</p>
+                <p>CPF: {props.cpf}</p>
+                <p>Data de nascimento: {dataFormatada}</p>
+                <p>Endereço: {props.endereco}</p>
+                <p>Telefone: {props.telefone}</p>
+                <p>Doença crônica: {props.doencaCronica?props.doencaCronica:"N/A"}</p>
+                
                 <button className={styles.botaoDetalhe} onClick={onClick}><AiOutlineEye/></button>
             </div>
         </div>
