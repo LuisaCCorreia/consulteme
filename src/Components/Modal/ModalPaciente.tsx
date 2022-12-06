@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styles from './Modal.module.css'
 
 interface ModalProps {
@@ -7,7 +8,7 @@ interface ModalProps {
     dataNascimentoAtual: string,
     enderecoAtual: string,
     telefoneAtual: string,
-    doencaCronicaAtual?: string
+    doencaCronicaAtual?: string,
     setShow:Function,
     show:boolean
 }
@@ -19,6 +20,31 @@ function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual,
     const [endereco, setEndereco] = useState<string>(enderecoAtual?enderecoAtual:"");
     const [telefone, setTelefone] = useState<string>(telefoneAtual?telefoneAtual:"");
     const [doencaCronica, setDoencaCronica] = useState<string>(doencaCronicaAtual?doencaCronicaAtual:"");
+
+    async function criar() {
+
+        if(cpfAtual !== "") {
+            const response = await axios.patch(`http://localhost:8080/api/v1/atendente/atualizar-paciente/${cpf}`, {
+                cpf: cpf,
+                nome: nomeCompleto,
+                dtNascimento: dataNascimento,
+                endereco: endereco,
+                telefone: telefone,
+                doencaCronica: doencaCronica
+            });
+
+        } else {
+            const response = await axios.post(`http://localhost:8080/api/v1/atendente/criar-paciente`, {
+                cpf: cpf,
+                nome: nomeCompleto,
+                dtNascimento: dataNascimento,
+                endereco: endereco,
+                telefone: telefone,
+                doencaCronica: doencaCronica
+            });
+        }
+        
+    }
 
 
     if(!show) {
@@ -33,7 +59,7 @@ function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual,
                 <div className={styles.modal_body}>
                     <form className={styles.conteudo}>
                         {
-                            cpf===""&&                      
+                            cpfAtual===""&&                      
                              <input
                             placeholder="Cpf do paciente"
                             type="text"
@@ -81,7 +107,10 @@ function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual,
                 </div>
                 <div className={styles.modal_footer}>
                     <button className={styles.fechar} onClick={() => {setShow(false)}}>Fechar</button>
-                    <button className={styles.salvar}>Salvar</button>
+                    <button className={styles.salvar} onClick={async () => {
+                        setShow(false)
+                        await criar();
+                    }}>Salvar</button>
                 </div>
             </div>
         </div>

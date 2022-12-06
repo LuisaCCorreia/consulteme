@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { AiFillDelete, AiOutlineEdit } from "react-icons/ai";
+import {  AiOutlineEdit } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import styles from '../../Components/Card/CardDetalhe.module.css'
 import CardDetalhe from '../../Components/Card/CardDetalheConsultas';
-import Modal from "../../Components/Modal/Modal";
+import ModalEditarConsulta from "../../Components/Modal/ModalEditarConsulta";
 
 function DetalheMedico() {
     const [show, setShow] = useState<boolean>(false)
@@ -26,12 +26,13 @@ function DetalheMedico() {
                 receita={consultas[ parseInt(id as string)].receita}            
             />
             
-            <Modal criar={()=>{}}
-                nomeAtual={consultas[ parseInt(id as string)].nomeCompleto} 
-                emailAtual={consultas[ parseInt(id as string)].email}
-                senhaAtual = {consultas[ parseInt(id as string)].senha}
+            <ModalEditarConsulta
                 setShow={setShow}
                 show={show}
+                statusAtual={""}
+                exameAtual={""}
+                diagnosticoAtual={""}
+                receitaAtual={""} id={id as string}            
             />
         </div>
     )

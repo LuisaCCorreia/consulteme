@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
 import BarraBusca from "../../Components/BarraBusca/BarraBusca";
 import CardConsultas from "../../Components/Card/CardConsultas";
 
@@ -12,6 +14,20 @@ interface Consulta {
 }
 
 function Consultas () {
+
+    const [listaMedicos, setListaMedicos] = useState<any>([]);
+
+    async function carregarTodosAtendentes() {
+
+        const response = await axios.get('http://localhost:8080/api/v1/gerente/buscar-medico');
+
+        setListaMedicos(response.data)
+    }
+
+    useEffect(()=>{
+        carregarTodosAtendentes();
+    },[])
+    
     return(
         <div>            
             {consultas.length > 0 && 

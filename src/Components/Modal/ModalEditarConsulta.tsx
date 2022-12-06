@@ -1,7 +1,9 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styles from './Modal.module.css'
 
 interface ModalProps {
+    id:string,
     statusAtual:string,
     exameAtual: string,
     diagnosticoAtual: string,
@@ -10,11 +12,19 @@ interface ModalProps {
     show:boolean
 }
 
-function Modal({statusAtual, exameAtual, diagnosticoAtual, receitaAtual,setShow, show}:ModalProps) {
+function Modal({statusAtual, exameAtual, diagnosticoAtual, id ,receitaAtual,setShow, show}:ModalProps) {
     const [status, setStatus] = useState<string>(statusAtual?statusAtual:"");
     const [receita, setReceita] = useState<string>(receitaAtual?receitaAtual:"");
     const [exame, setExame] = useState(exameAtual?exameAtual:"");
     const [diagnostico, setDiagnostico] = useState(diagnosticoAtual?diagnosticoAtual:"");
+
+    async function editar() {
+        await axios.patch(`http://localhost:8080/api/v1/medico/finalizar-consulta/${id}`, {
+            exame: exame,
+            diagnostico: diagnostico,
+            receita: receita
+        })
+    }
 
     if(!show) {
         return null;

@@ -51,7 +51,7 @@
     background-color: lightseagreen;
     color: white;
     border: none;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px 0px 0px 10px;
     height: 35px;
     width: 40px;
 }

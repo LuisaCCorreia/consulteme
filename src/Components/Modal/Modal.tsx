@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styles from './Modal.module.css'
 
@@ -5,12 +6,13 @@ interface ModalProps {
     nomeAtual?: string,
     emailAtual?: string,
     senhaAtual?:string,
+    regiao?:string
     criar:Function,
     setShow:Function,
     show:boolean
 }
 
-function Modal({nomeAtual, emailAtual, senhaAtual,criar, setShow, show}:ModalProps) {
+function Modal({nomeAtual, emailAtual, senhaAtual,criar, regiao,setShow, show}:ModalProps) {
     const [nome, setNome] = useState<string>(nomeAtual?nomeAtual:"");
     const [email, setEmail] = useState<string>(emailAtual?emailAtual:"");
     const [senha, setSenha] = useState<string>(senhaAtual?senhaAtual:"");
@@ -50,8 +52,18 @@ function Modal({nomeAtual, emailAtual, senhaAtual,criar, setShow, show}:ModalPro
                 </div>
                 <div className={styles.modal_footer}>
                     <button className={styles.fechar} onClick={() => {setShow(false)}}>Fechar</button>
-                    <button className={styles.salvar} onClick={()=>{
-                        criar(email, senha, nome)
+                    <button className={styles.salvar} onClick={async ()=>{
+                        await axios.post('http://localhost:5000/', {
+                            ocupacao: "Gerente",
+                            acao: `Criou ${nome} na aba ${regiao}`,
+                            nome: "Gerente logado"
+                        })
+                        if(regiao === "Médicos") {
+                            criar(email, senha, nome, "12441");
+                        } else {
+                            criar(email, senha, nome)
+                        }
+                        
                         setShow(false)
                         }}>Salvar</button>
                 </div>

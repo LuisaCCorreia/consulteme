@@ -1,15 +1,15 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styles from './Modal.module.css'
 
 interface ModalNovaConsultaProps {
-    cpf:string,
-    nomeMedico:string
+    crm:string,
+    setCrm: Function
     show:boolean,
     setShow:Function
 }
 
-function ModalNovaConsulta({cpf, show, setShow}:ModalNovaConsultaProps) {
-    const [nomeMedico, setNomeMedico] = useState<string>("");
+function ModalNovaConsulta({crm, setCrm, show, setShow}:ModalNovaConsultaProps) {
     
     if(!show) {
         return null;
@@ -23,17 +23,24 @@ function ModalNovaConsulta({cpf, show, setShow}:ModalNovaConsultaProps) {
                 <div className={styles.modal_body}>
                     <form className={styles.conteudo}>
                         <input
-                            placeholder="Nome completo"
+                            placeholder="CRM do médico"
                             type="text"
-                            value={nomeMedico}
-                            onChange={(e) => {setNomeMedico(e.target.value)}}
+                            value={crm}
+                            onChange={(e) => {setCrm(e.target.value)}}
                         />
 
                     </form>
                 </div>
                 <div className={styles.modal_footer}>
                     <button className={styles.fechar} onClick={() => {setShow(false)}}>Fechar</button>
-                    <button className={styles.salvar}>Salvar</button>
+                    <button className={styles.salvar} onClick={async () => {
+                        setShow(false)
+                        await axios.post('http://localhost:5000/', {
+                            ocupacao: "Atendente",
+                            acao: `Criou a consulta uma consulta`,
+                            nome: "Atendente logado"
+                        })
+                    }}>Salvar</button>
                 </div>
             </div>
         </div>

@@ -24,7 +24,6 @@ function Atendentes(){
         carregarTodosAtendentes();
     },[])
 
-    console.log(listaAtendentes)
     return(
         <div>
             <BarraBusca regiao={"Atendentes"}/>                 
