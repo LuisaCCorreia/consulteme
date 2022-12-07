@@ -31,7 +31,8 @@ function BarraBusca({regiao}:BarraBuscaProps) {
             gerente: {
                 "id": 1
             }});
-        }
+
+        } if (regiao === "Pacientes") {}
     }
     return(
         <div>

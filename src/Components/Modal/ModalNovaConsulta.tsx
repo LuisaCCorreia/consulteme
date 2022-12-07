@@ -18,7 +18,7 @@ function ModalNovaConsulta({crm, setCrm, show, setShow}:ModalNovaConsultaProps) 
         <div className={styles.modal}>
             <div className={styles.modal_content}>
                 <div className={styles.modal_header}>
-                    <h4 className={styles.modal_title}>Título</h4>
+                    <h4 className={styles.modal_title}>Criar consulta</h4>
                 </div>
                 <div className={styles.modal_body}>
                     <form className={styles.conteudo}>

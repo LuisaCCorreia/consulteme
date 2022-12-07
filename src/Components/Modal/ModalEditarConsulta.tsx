@@ -33,7 +33,7 @@ function Modal({statusAtual, exameAtual, diagnosticoAtual, id ,receitaAtual,setS
         <div className={styles.modal}>
             <div className={styles.modal_content}>
                 <div className={styles.modal_header}>
-                    <h4 className={styles.modal_title}>Título</h4>
+                    <h4 className={styles.modal_title}></h4>
                 </div>
                 <div className={styles.modal_body}>
                     <form className={styles.conteudo}>
@@ -68,7 +68,7 @@ function Modal({statusAtual, exameAtual, diagnosticoAtual, id ,receitaAtual,setS
                 </div>
                 <div className={styles.modal_footer}>
                     <button className={styles.fechar} onClick={() => {setShow(false)}}>Fechar</button>
-                    <button className={styles.salvar}>Salvar</button>
+                    <button className={styles.salvar} onClick={editar}>Salvar</button>
                 </div>
             </div>
         </div>

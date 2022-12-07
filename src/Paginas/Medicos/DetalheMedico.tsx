@@ -5,10 +5,12 @@ import styles from '../../Components/Card/CardDetalhe.module.css'
 import CardDetalhe from '../../Components/Card/CardDetalhe';
 import Modal from "../../Components/Modal/Modal";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function DetalheMedico() {
     const [show, setShow] = useState<boolean>(false)
     const {id} = useParams();
+    const navigate = useNavigate();
     const [listaMedicos, setListaMedicos] = useState<any>([]);
 
     async function carregarTodosMedicos() {
@@ -38,14 +40,15 @@ function DetalheMedico() {
     async function apagar() {
 
         const response = await axios.delete(`http://localhost:8080/api/v1/gerente/deletar-medico/${id}`);
+        setListaMedicos({});
+        navigate('/medicos');
 
         await axios.post('http://localhost:5000/', {
                             ocupacao: "Gerente",
                             acao: `Apagou o médico ${listaMedicos.nome}`,
                             nome: "Gerente logado"
-                        })
+        })
 
-        setListaMedicos({});
     }
 
 
@@ -62,17 +65,20 @@ function DetalheMedico() {
 
     return(
         <div>
-            <CardDetalhe
+
+            {
+                listaMedicos !== undefined&&
+                <CardDetalhe
                 regiao="Médico"
                 nome={listaMedicos.nome}
                 email={listaMedicos.email}
                 botoes={botoes}
             />
+            }
             
             <Modal criar={editar}
                 nomeAtual={listaMedicos.nome} 
                 emailAtual={listaMedicos.email}
-                senhaAtual = {listaMedicos.senha}
                 setShow={setShow}
                 show={show}
             />

@@ -5,9 +5,11 @@ import styles from '../../Components/Card/CardDetalhe.module.css'
 import CardDetalhe from '../../Components/Card/CardDetalhe';
 import Modal from "../../Components/Modal/Modal";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function DetalheAtendente() {
-    const [show, setShow] = useState<boolean>(false)
+    const [show, setShow] = useState<boolean>(false);
+    const navigate = useNavigate();
     const {id} = useParams();
     
     const [atendente, setAtendente] = useState<any>([]);
@@ -32,9 +34,9 @@ function DetalheAtendente() {
 
     async function apagar() {
 
-        const response = await axios.delete(`http://localhost:8080/api/v1/gerente/deletar-atendente/${id}`);
+        await axios.delete(`http://localhost:8080/api/v1/gerente/deletar-atendente/${id}`);
 
-        setAtendente({});
+        navigate('/atendentes');
     }
 
     useEffect(()=>{
@@ -69,7 +71,6 @@ function DetalheAtendente() {
             <Modal criar={editar}
                 nomeAtual={atendente.nome} 
                 emailAtual={atendente.email}
-                senhaAtual = {atendente.senha}
                 setShow={setShow}
                 show={show}
             />
