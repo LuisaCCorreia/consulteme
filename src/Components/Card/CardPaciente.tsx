@@ -18,7 +18,7 @@ interface CardStateProps {
 function Card(props: CardStateProps) {
 
 const navigate = useNavigate();
-    const dataFormatada = `${props.dataNascimento.getDate()}/${props.dataNascimento.getMonth()}/${props.dataNascimento.getFullYear()}`;
+    const dataFormatada = `${props.dataNascimento.getDate() + 1}/${props.dataNascimento.getMonth() + 1}/${props.dataNascimento.getFullYear()}`;
 
     function onClick() {
        navigate(`/pacientes/${props.cpf}`)

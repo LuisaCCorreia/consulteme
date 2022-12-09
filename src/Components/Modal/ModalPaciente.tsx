@@ -14,12 +14,13 @@ interface ModalProps {
 }
 
 function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual, telefoneAtual, doencaCronicaAtual,setShow, show}:ModalProps) {
-    const [cpf, setCpf] = useState<string>(cpfAtual?cpfAtual:"");
-    const [nomeCompleto, setNomeCompleto] = useState<string>(nomeCompletoAtual?nomeCompletoAtual:"");
-    const [dataNascimento, setdataNascimento] = useState<string>(dataNascimentoAtual?dataNascimentoAtual:"");
-    const [endereco, setEndereco] = useState<string>(enderecoAtual?enderecoAtual:"");
-    const [telefone, setTelefone] = useState<string>(telefoneAtual?telefoneAtual:"");
+    const [cpf, setCpf] = useState<string>(cpfAtual);
+    const [nomeCompleto, setNomeCompleto] = useState<string>(nomeCompletoAtual);
+    const [dataNascimento, setdataNascimento] = useState<string>(dataNascimentoAtual);
+    const [endereco, setEndereco] = useState<string>(enderecoAtual);
+    const [telefone, setTelefone] = useState<string>(telefoneAtual);
     const [doencaCronica, setDoencaCronica] = useState<string>(doencaCronicaAtual?doencaCronicaAtual:"");
+console.log(nomeCompleto)
 
     async function criar() {
 
@@ -34,13 +35,16 @@ function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual,
             });
 
         } else {
+
+            let data = new Date(dataNascimento)
+
             const response = await axios.post(`http://localhost:8080/api/v1/atendente/criar-paciente`, {
                 cpf: cpf,
                 nome: nomeCompleto,
-                dtNascimento: dataNascimento,
+                dtNascimento: `${data.getDate() + 1}/${data.getMonth() + 1}/${data.getFullYear()}`,
                 endereco: endereco,
                 telefone: telefone,
-                doencaCronica: doencaCronica
+                doencaCronica: ""
             });
         }
         
