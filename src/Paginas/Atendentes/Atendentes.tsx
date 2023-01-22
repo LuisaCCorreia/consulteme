@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from "react";
+import React, { useEffect, useState }from "react";
 import Card from "../../Components/Card/Card";
 import BarraBusca from "../../Components/BarraBusca/BarraBusca";
 import axios from "axios";
