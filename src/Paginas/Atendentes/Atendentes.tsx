@@ -3,6 +3,9 @@ import Card from "../../Components/Card/Card";
 import BarraBusca from "../../Components/BarraBusca/BarraBusca";
 import axios from "axios";
 
+import Header from '../../Components/Header/HeaderAtendente';
+import Footer from '../../Components/Footer/footer';
+
 interface Atendente {
     id: string,
     nome:string,
@@ -25,21 +28,22 @@ function Atendentes(){
     },[])
 
     return(
-        <div>
-            <BarraBusca regiao={"Atendentes"}/>                 
-            {listaAtendentes.length >0 && listaAtendentes.map((item:Atendente, key:number) => {
-                return(
-                   <Card 
+        <><Header /><div>
+            <BarraBusca regiao={"Atendentes"} />
+            {listaAtendentes.length > 0 && listaAtendentes.map((item: Atendente, key: number) => {
+                return (
+                    <Card
                         key={key}
                         id={item.id}
                         nomeCompleto={item.nome}
-                        email={item.email} 
-                        regiao={"Atendente"}                   
-                    />
-                )
+                        email={item.email}
+                        regiao={"Atendente"} />
+                );
             })}
         </div>
-       
+        <Footer classe="footer" />
+        </>
+           
     )
 }
 

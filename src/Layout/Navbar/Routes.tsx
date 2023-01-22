@@ -8,12 +8,18 @@ import DetalheMedico from "../../Paginas/Medicos/DetalheMedico";
 import Pacientes from "../../Paginas/Pacientes/Pacientes";
 import DetalhePaciente from "../../Paginas/Pacientes/DetalhePaciente";
 import Navbar from "./Navbar";
+import HomeNaoLogada from "../../Paginas/HomeNaoLogada/index";
+import Login from "../../Paginas/Login/login";
+import Cadastro from "../../Paginas/Cadastro/Cadastro"
 
 function Rotas(){
     return(
         <Router>
             <Navbar/>
             <Routes>
+                <Route path="/" element= {<HomeNaoLogada/>} />
+                <Route path="/loginPaciente" element= {<Login/>} />
+                <Route path="/cadastro" element= {<Cadastro/>} />
                 <Route path="/atendentes" element={<Atendentes/>}/>
                 <Route path="/atendentes/:id" element={<DetalheAtendente/>}/>
                 <Route path="/consultas" element={<Consultas/>}/>

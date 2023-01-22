@@ -1,0 +1,104 @@
+#divNavBar{
+    margin-top: 0;
+    background-color: white;
+    height: 127px;
+  }
+  
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 24px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  
+  #logo {
+    width: 190px;
+    Height: 80px;
+    border-radius: 0px;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  
+    width: 35%;
+    font-size: 20px;
+    font-weight: 600;
+    list-style: none;
+  }
+  
+  .navSecretaria {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  
+    width: 50%;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .perfil {
+    width: 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .perfil ul {
+    text-align: right;
+    margin:0;
+    padding: 0;
+  }
+  
+  .perfilNãoLogado {
+    width: 11%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .perfilNãoLogado ul {
+    text-align: right;
+    margin:0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  #fotoPerfil {
+    width: 72px;
+  }
+  
+  .logout{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .logoutSecretaria button, .logoutMedico button {
+    color: white;
+    font-weight: bold;
+    width: 180px;
+    height: 56px;
+    border-radius: 8px;
+    background-color: #FF4F5A;
+  }
+  
+  @media only screen and (max-width: 1700px) {
+    .perfil{width: 10%;}
+    .perfilNãoLogado{width: 13%;}
+  }
+  
+  @media only screen and (max-width: 1500px) {
+    .perfil{width: 13%;}
+    .perfilNãoLogado{width: 16%;}
+  }
+  
+  @media only screen and (max-width: 1300px) {
+    .perfil{width: 15%;}
+    #fotoPerfil {width: 56px;}
+    .perfilNãoLogado{width: 19%;}
+  }
