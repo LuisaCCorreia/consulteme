@@ -14,9 +14,10 @@ interface Medico {
 }
 
 function Medicos() {
+    const [busca, setBusca] = useState<string>("");
     const [listaMedicos, setListaMedicos] = useState<any>([]);
 
-    async function carregarTodosAtendentes() {
+    async function carregarTodosMedicos() {
 
         const response = await axios.get('http://localhost:8080/api/v1/gerente/buscar-medico');
 
@@ -24,11 +25,16 @@ function Medicos() {
     }
 
     useEffect(()=>{
-        carregarTodosAtendentes();
+        carregarTodosMedicos();
     },[])
 
+    async function buscar() {
+        let medicoEspecifico = await axios.get(`http://localhost:8080/api/v1/gerente/buscar-medico/${busca}`);
+        setListaMedicos([medicoEspecifico.data])
+    }
+
     return(<div>
-        <BarraBusca regiao="Médicos" buscar={()=>{}} busca={""} setBusca={()=>{}}/>                 
+        <BarraBusca regiao="Médicos" buscar={buscar} busca={busca} setBusca={setBusca}/>                 
         {listaMedicos.length > 0 && listaMedicos.map((item:Medico, key:number) => {
             return(
                <Card 

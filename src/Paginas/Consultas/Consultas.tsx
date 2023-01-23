@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import BarraBusca from "../../Components/BarraBusca/BarraBusca";
 import CardConsultas from "../../Components/Card/CardConsultas";
 
-const consultas = require('../../BD/Consulta.json');
-
 interface Consulta {
     id: string,
     status:string,
@@ -15,23 +13,23 @@ interface Consulta {
 
 function Consultas () {
 
-    const [listaMedicos, setListaMedicos] = useState<any>([]);
+    const [listaConsultas, setListaConsultas] = useState<any>([]);
 
-    async function carregarTodosAtendentes() {
+    async function carregarTodasConsultas() {
 
-        const response = await axios.get('http://localhost:8080/api/v1/gerente/buscar-medico');
+        const response = await axios.get('http://localhost:8080/api/v1/atendente/buscar-consulta');
 
-        setListaMedicos(response.data)
+        setListaConsultas(response.data)
     }
 
     useEffect(()=>{
-        carregarTodosAtendentes();
+        carregarTodasConsultas();
     },[])
     
     return(
         <div>            
-            {consultas.length > 0 && 
-                consultas.map(({
+            {listaConsultas.length > 0 && 
+                listaConsultas.map(({
                     id,
                     status,
                     exame,

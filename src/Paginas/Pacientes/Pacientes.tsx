@@ -14,26 +14,23 @@ interface Paciente {
 
 function Pacientes () {
 
-    const [listaPacientes, setListaPacielistaPacientes] = useState<any>([]);
+    const [listaPacientes, setListaPacientes] = useState<any>([]);
     const [busca, setBusca] = useState<string>("");
-    let pacienteEspecifico:any;
 
     async function carregarTodosPacientes() {
 
         const response = await axios.get('http://localhost:8080/api/v1/atendente/buscar-paciente');
 
-        setListaPacielistaPacientes(response.data)
+        setListaPacientes(response.data)
     }
 
     useEffect(()=>{
         carregarTodosPacientes();
     },[])
 
-    console.log(listaPacientes)
-
     async function buscar() {
-        pacienteEspecifico = await
-            axios.get(`http://localhost:8080/api/v1/atendente/buscar-paciente/${busca}`);
+        let pacienteEspecifico = await axios.get(`http://localhost:8080/api/v1/atendente/buscar-paciente/${busca}`);
+        setListaPacientes([pacienteEspecifico.data])
     }
     
     return(

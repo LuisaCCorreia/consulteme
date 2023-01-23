@@ -14,6 +14,7 @@ interface Atendente {
 
 function Atendentes(){
 
+    const [busca, setBusca] = useState<string>("");
     const [listaAtendentes, setListaAtendentes] = useState<any>([]);
 
     async function carregarTodosAtendentes() {
@@ -27,9 +28,14 @@ function Atendentes(){
         carregarTodosAtendentes();
     },[])
 
+    async function buscar() {
+        let atendenteEspecifico = await axios.get(`http://localhost:8080/api/v1/gerente/buscar-atendente/${busca}`);
+        setListaAtendentes([atendenteEspecifico.data])
+    }
+
     return(
         <><Header /><div>
-            <BarraBusca regiao={"Atendentes"} buscar={()=>{}} busca={""} setBusca={()=>{}} />
+            <BarraBusca regiao={"Atendentes"} buscar={buscar} busca={busca} setBusca={setBusca} />
             {listaAtendentes.length > 0 && listaAtendentes.map((item: Atendente, key: number) => {
                 return (
                     <Card
