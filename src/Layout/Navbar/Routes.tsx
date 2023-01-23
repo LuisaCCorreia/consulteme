@@ -16,6 +16,7 @@ import HomeLogadoGerente from "../../Paginas/HomeLogadoGerente/HomeLogadoGerente
 function Rotas(){
     return(
         <Router>
+            
             <Routes>
                 <Route path="/" element= {<HomeNaoLogada/>} />
                 <Route path="/homeAtendente" element= {<HomeLogadoAtendente/>} />
