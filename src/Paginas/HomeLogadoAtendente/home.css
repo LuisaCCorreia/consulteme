@@ -1,0 +1,120 @@
+.divBanner {
+    position: relative;
+  }
+  
+  #imgBanner {
+    position: absolute;
+  }
+  
+  #textoBanner1 {
+    position: absolute;
+    left: 38px;
+    top: 240px;
+  
+    font-size: 44px;
+    line-height: 43px;
+  }
+  
+  #textoBanner2 {
+    position: absolute;
+    left: 38px;
+    top: 296px;
+  
+    font-size: 44px;
+    line-height: 43px;
+  }
+  
+  .button{
+    position: absolute;
+    width: 240px;
+    height: 72px;
+    left: 38px;
+    top: 374px;
+  
+    background-color: #FF4F5A;
+    color: white;
+    font-weight: bold;
+    border:none
+  }
+  
+  .negrito{
+    font-weight: bold;
+  }
+  
+  .divBody{
+    position: absolute;
+    top: 840px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content{
+    margin-top: 88px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #ilusMedicos {
+    width: 515px;
+    height: 372px;
+  }
+  
+  #ilusConsulta{
+    width: 480px;
+    height: 480px;
+  }
+  
+  #ilusAvaliacao {
+    width: 382.65px;
+    height: 417px;
+  }
+  
+  .pBody{
+    margin-top: 16px;
+  }
+  
+  .buttonBody {
+    margin-top: 24px;
+    width: 240px;
+    height: 72px;
+    background-color: #FF4F5A;
+    color: white;
+    font-weight: bold;
+    border:none
+  }
+  
+  .localizacao {
+    margin-top: 88px;
+    text-align: center;
+  }
+  
+  .leaflet-container{
+    margin-top: 24px;
+    height: 50vh;
+    width: 50vw;
+  }
+  
+  @media only screen and (max-width: 1700px) {
+    #textoBanner1 {top: 200px; font-size: 36px;}
+    #textoBanner2 {top: 256px; font-size: 36px;}
+    .button{top: 334px;}
+    .divBody{top: 740px;}
+  }
+  
+  @media only screen and (max-width: 1500px) {
+    #textoBanner1 {top: 160px; font-size: 32px;}
+    #textoBanner2 {top: 216px; font-size: 32px;}
+    .button{top: 294px;}
+    .divBody{top: 700px;}
+  }
+  
+  @media only screen and (max-width: 1300px) {
+    #textoBanner1 {top: 120px; font-size: 24px;}
+    #textoBanner2 {top: 176px; font-size: 24px;}
+    .button{top: 244px;}
+    .divBody{top: 640px;}
+  }

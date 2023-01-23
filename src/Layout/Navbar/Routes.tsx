@@ -6,23 +6,22 @@ import Medicos from "../../Paginas/Medicos/Medicos";
 import DetalheMedico from "../../Paginas/Medicos/DetalheMedico";
 import Pacientes from "../../Paginas/Pacientes/Pacientes";
 import DetalhePaciente from "../../Paginas/Pacientes/DetalhePaciente";
-import Navbar from "./Navbar";
 import HomeNaoLogada from "../../Paginas/HomeNaoLogada/index";
 import Login from "../../Paginas/Login/login";
-import LoginAtendente from "../../Paginas/Login/loginAtendente";
-import LoginGerente from "../../Paginas/Login/loginGerente";
-import LoginMedico from "../../Paginas/Login/loginMedico";
+import HomeLogadoAtendente from "../../Paginas/HomeLogadoAtendente/HomeLogadoAtendente";
+import HomeLogadoMedico from "../../Paginas/HomeLogadoMedico/HomeLogadoMedico";
+import HomeLogadoGerente from "../../Paginas/HomeLogadoGerente/HomeLogadoGerente";
 
 
 function Rotas(){
     return(
         <Router>
-            <Navbar/>
             <Routes>
                 <Route path="/" element= {<HomeNaoLogada/>} />
-                <Route path="/loginAtendente" element= {<LoginAtendente/>} />
-                <Route path="/loginGerente" element= {<LoginGerente/>} />
-                <Route path="/loginMedico" element= {<LoginMedico/>} />
+                <Route path="/homeAtendente" element= {<HomeLogadoAtendente/>} />
+                <Route path="/homeGerente" element= {<HomeLogadoGerente/>} />
+                <Route path="/login" element= {<Login/>} />
+                <Route path="/homeMedico" element= {<HomeLogadoMedico/>} />
                 <Route path="/atendentes" element={<Atendentes/>}/>
                 <Route path="/atendentes/:id" element={<DetalheAtendente/>}/>
                 <Route path="/consultas" element={<Consultas/>}/>

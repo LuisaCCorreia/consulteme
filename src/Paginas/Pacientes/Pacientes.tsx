@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import BarraBusca from "../../Components/BarraBusca/BarraBusca";
 import CardPacientes from "../../Components/Card/CardPaciente";
 
-import Header from '../../Components/Header/HeaderPaciente';
+import Header from '../../Components/Header/HeaderAtendente';
 import Footer from '../../Components/Footer/footer';
 
 interface Paciente {

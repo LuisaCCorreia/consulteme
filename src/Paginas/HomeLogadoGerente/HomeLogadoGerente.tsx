@@ -5,12 +5,17 @@ import Banner from '../../assets/banner (2).png';
 import IlusMedicos from '../../assets/Ilustracao medicos (1).png';
 import IlusConsulta from '../../assets/Ilustracao consulta.png';
 import IlusAvaliacao from '../../assets/Ilustracao avaliação.png';
+
+
+import Header from '../../Components/Header/HeaderGerente';
 import Footer from '../../Components/Footer/footer';
 
-export default function HomeNaoLogada() {
+export default function HomeNaoLogadoGerente() {
     document.title = "ConsulteMe";
     return (
         <>
+            <Header />
+
             <div className="divBanner">
                 <img src={Banner} width="100%" alt="banner de marketing" id="imgBanner"></img>
                 <h1 id="textoBanner1">Os melhores médicos e consultórios </h1>

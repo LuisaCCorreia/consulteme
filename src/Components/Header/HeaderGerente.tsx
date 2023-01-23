@@ -1,20 +1,19 @@
 import './header.css'
 
-import { Link , useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 import Logo from '../../assets/logo.png';
 import { Button } from '@mui/material';
 
-
-export default function HeaderSecretaria() {
+export default function HeaderGerente() {
   const navigate = useNavigate()
-  function logout () {
-    localStorage.setItem("cargo", "")
-    navigate("/login")
-  }
-    
+
+    function logout () {
+      localStorage.setItem("cargo", "")
+      navigate("/login")
+    }
   return (
     <div id="divNavBar">
       <div className="navBar">
@@ -25,15 +24,16 @@ export default function HeaderSecretaria() {
         
         <ul className="navAtendente">
         <div className='divAtiva'>
-          </div>
-          <Link to="/consultas">
-            <li className='liNav'>Consultas</li>
+          <Link to="/atendentes">
+            <li className='liPagAtendente'>Atendentes</li>
           </Link>
-          <Link to="/pacientes">
-            <li className='liNav'>Pacientes</li>
+          </div>
+          <Link to="/medicos">
+            <li className='liNav'>Médicos</li>
           </Link>
         </ul>
         <Button onClick={logout}>Logout</Button>
+        
       </div>
     </div>
   );

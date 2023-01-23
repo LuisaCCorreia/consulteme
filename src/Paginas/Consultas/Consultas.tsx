@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CardConsultas from "../../Components/Card/CardConsultas";
-
-import Header from '../../Components/Header/HeaderConsulta';
+import HeaderAtendente from '../../Components/Header/HeaderAtendente';
+import HeaderMedico from '../../Components/Header/HeaderMedico';
 import Footer from '../../Components/Footer/footer';
 
 interface Consulta {
@@ -29,7 +29,7 @@ function Consultas () {
     },[])
     
     return(
-        <><Header/>
+        <>{localStorage.getItem("cargo") === "MEDICO"? <HeaderMedico/>:localStorage.getItem("cargo") === "ATENDENTE"&&<HeaderAtendente/>}
         <div>            
             {listaConsultas.length > 0 && 
                 listaConsultas.map(({

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -9,9 +9,34 @@ import Grid from '@mui/material/Grid';
 
 import HeaderNaoLogado from '../../Components/Header/HeaderNaoLogado';
 import Footer from '../../Components/Footer/footer';
+import { useState } from 'react';
 
 
 function Login() {
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
+  const navigate = useNavigate();
+
+  let atendente = {email:"maria@email.com", senha:"123"}
+  let gerente = {email:"jose@email.com", senha:"123"}
+  let medico = {email:"pedro@email.com", senha:"123"}
+
+  function signin (e:any)  {
+    e.preventDefault();
+
+    if(email === atendente.email && senha === atendente.senha) {
+      localStorage.setItem("cargo", "ATENDENTE")
+      navigate('/homeatendente')
+
+    } else if(email === gerente.email && senha === gerente.senha) {
+      localStorage.setItem("cargo", "GERENTE")
+      navigate('/homegerente')
+    } else if(email === medico.email && senha === medico.senha) {
+      localStorage.setItem("cargo", "MEDICO")
+      navigate('/homemedico')
+    }
+
+  }
     
 return (
     <>
@@ -32,6 +57,8 @@ return (
           </Typography>
           <Box component="form">
             <TextField
+              value={email}
+              onChange={(e) => {setEmail(e.target.value)}}
               margin="normal"
               required
               fullWidth
@@ -42,6 +69,8 @@ return (
               autoFocus
             />
             <TextField
+             value={senha}
+             onChange={(e) => {setSenha(e.target.value)}}
               margin="normal"
               required
               fullWidth
@@ -52,6 +81,7 @@ return (
               autoComplete="current-password"
             />
             <Button
+            onClick={(e)=>{signin(e)}}
               type="submit"
               fullWidth
               variant="contained"
@@ -59,20 +89,6 @@ return (
             >
               Sign In
             </Button>
-
-            <Grid container>
-              <Grid item xs>
-              <Link to="/">
-                  Esqueceu a senha?
-                </Link>
-              </Grid>
-              <Grid item>
-              <Link to="/cadastro">
-                  {"Não tem uma conta?"} <br></br> {"Faça seu cadastro"}
-                </Link>
-              </Grid>
-            </Grid>
-
           </Box>
         </Box>
         

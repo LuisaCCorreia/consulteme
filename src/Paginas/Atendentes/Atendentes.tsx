@@ -3,7 +3,7 @@ import Card from "../../Components/Card/Card";
 import BarraBusca from "../../Components/BarraBusca/BarraBusca";
 import axios from "axios";
 
-import Header from '../../Components/Header/HeaderAtendente';
+import Header from '../../Components/Header/HeaderGerente';
 import Footer from '../../Components/Footer/footer';
 
 interface Atendente {
