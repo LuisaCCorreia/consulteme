@@ -20,7 +20,6 @@ function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual,
     const [endereco, setEndereco] = useState<string>(enderecoAtual);
     const [telefone, setTelefone] = useState<string>(telefoneAtual);
     const [doencaCronica, setDoencaCronica] = useState<string>(doencaCronicaAtual?doencaCronicaAtual:"");
-console.log(nomeCompleto)
 
     async function criar() {
 

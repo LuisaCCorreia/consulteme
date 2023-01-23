@@ -6,10 +6,11 @@ interface ModalNovaConsultaProps {
     crm:string,
     setCrm: Function
     show:boolean,
-    setShow:Function
+    setShow:Function,
+    criarConsulta:Function
 }
 
-function ModalNovaConsulta({crm, setCrm, show, setShow}:ModalNovaConsultaProps) {
+function ModalNovaConsulta({crm, setCrm, criarConsulta,show, setShow}:ModalNovaConsultaProps) {
     
     if(!show) {
         return null;
@@ -35,11 +36,7 @@ function ModalNovaConsulta({crm, setCrm, show, setShow}:ModalNovaConsultaProps) 
                     <button className={styles.fechar} onClick={() => {setShow(false)}}>Fechar</button>
                     <button className={styles.salvar} onClick={async () => {
                         setShow(false)
-                        await axios.post('http://localhost:5000/', {
-                            ocupacao: "Atendente",
-                            acao: `Criou a consulta uma consulta`,
-                            nome: "Atendente logado"
-                        })
+                        await criarConsulta();
                     }}>Salvar</button>
                 </div>
             </div>

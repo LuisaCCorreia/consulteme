@@ -25,8 +25,7 @@ function DetalhePaciente() {
         carregarTodosPacientes();
     },[]);
 
-    async function criarConsulta(cpf:string, crm:string) {
-
+    async function criarConsulta() {
         const response = await axios.post(`http://localhost:8080/api/v1/atendente/criar-consulta`, {
             medico:{
                 crm: crm
@@ -35,6 +34,11 @@ function DetalhePaciente() {
                 cpf: listaPacientes.cpf
             }
         });
+        await axios.post('http://localhost:5000/', {
+            ocupacao: "Atendente",
+            acao: `Criou a consulta uma consulta`,
+            nome: "Atendente logado"
+        })
 
         setListaPacielistaPacientes(response.data)
     }
@@ -45,7 +49,6 @@ function DetalhePaciente() {
             <button onClick={() => {setShow(true)}} className={styles.botaoEditar}><AiOutlineEdit/></button>
             <button className={styles.botaoAdicionar} onClick={() => {
                 setShowConsulta(true)
-                criarConsulta(listaPacientes.cpf, crm)
             }}><AiOutlinePlus/></button>
         </div>
     )
@@ -76,6 +79,7 @@ function DetalhePaciente() {
             />
 
             <ModalNovaConsulta 
+                criarConsulta={criarConsulta}
                 crm={crm}
                 setCrm={setCrm}
                 show={showConsulta} 

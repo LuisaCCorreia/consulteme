@@ -20,6 +20,7 @@ function Modal({statusAtual, exameAtual, diagnosticoAtual, id ,receitaAtual,setS
 
     async function editar() {
         await axios.patch(`http://localhost:8080/api/v1/medico/finalizar-consulta/${id}`, {
+            status:status,
             exame: exame,
             diagnostico: diagnostico,
             receita: receita
@@ -29,6 +30,7 @@ function Modal({statusAtual, exameAtual, diagnosticoAtual, id ,receitaAtual,setS
     if(!show) {
         return null;
     }
+
     return(
         <div className={styles.modal}>
             <div className={styles.modal_content}>
@@ -37,12 +39,12 @@ function Modal({statusAtual, exameAtual, diagnosticoAtual, id ,receitaAtual,setS
                 </div>
                 <div className={styles.modal_body}>
                     <form className={styles.conteudo}>
-                        <input
-                            placeholder="Status da consulta"
-                            type="text"
-                            value={status}
-                            onChange={(e) => {setStatus(e.target.value)}}
-                        />
+                        <select
+                        value={status}
+                        onChange={(e)=>{setStatus(e.target.value)}}>
+                            <option value={"CONCLUIDA"}>CONCLUIDA</option>
+                            <option value={"CANCELADA"}>CANCELADA</option>
+                        </select>                      
 
                         <input
                             placeholder="Exame"
@@ -68,7 +70,10 @@ function Modal({statusAtual, exameAtual, diagnosticoAtual, id ,receitaAtual,setS
                 </div>
                 <div className={styles.modal_footer}>
                     <button className={styles.fechar} onClick={() => {setShow(false)}}>Fechar</button>
-                    <button className={styles.salvar} onClick={editar}>Salvar</button>
+                    <button className={styles.salvar} onClick={()=>{
+                        editar();
+                        setShow(false)
+                    }}>Salvar</button>
                 </div>
             </div>
         </div>
