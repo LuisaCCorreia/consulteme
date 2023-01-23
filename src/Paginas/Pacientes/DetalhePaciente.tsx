@@ -66,8 +66,11 @@ function DetalhePaciente() {
                 telefone={listaPacientes.telefone}
                 doencaCronica={listaPacientes.doencaCronica}
             />
-            
-            <ModalPaciente
+
+            {
+                
+                Object.entries(listaPacientes).length > 0 &&
+                <ModalPaciente
                 setShow={setShow}
                 show={show} 
                 cpfAtual={listaPacientes.cpf} 
@@ -77,6 +80,7 @@ function DetalhePaciente() {
                 telefoneAtual={listaPacientes.telefone}       
                 doencaCronicaAtual={listaPacientes.doencaCronica}    
             />
+            }
 
             <ModalNovaConsulta 
                 criarConsulta={criarConsulta}

@@ -57,7 +57,7 @@ function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual,
         <div className={styles.modal}>
             <div className={styles.modal_content}>
                 <div className={styles.modal_header}>
-                    <h4 className={styles.modal_title}></h4>
+                    <h4 className={styles.modal_title}>Editar paciente</h4>
                 </div>
                 <div className={styles.modal_body}>
                     <form className={styles.conteudo}>
