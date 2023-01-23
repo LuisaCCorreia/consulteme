@@ -20,14 +20,15 @@ function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual,
     const [endereco, setEndereco] = useState<string>(enderecoAtual??"");
     const [telefone, setTelefone] = useState<string>(telefoneAtual??"");
     const [doencaCronica, setDoencaCronica] = useState<string>(doencaCronicaAtual?doencaCronicaAtual:"");
+    console.log(dataNascimento)
 
     async function criar() {
 
         if(cpfAtual !== "") {
+            let dataAtualizada = new Date(dataNascimento)
             const response = await axios.patch(`http://localhost:8080/api/v1/atendente/atualizar-paciente/${cpf}`, {
-                cpf: cpf,
                 nome: nomeCompleto,
-                dtNascimento: dataNascimento,
+                dtNascimento: `${dataAtualizada.getDate() + 1}/${dataAtualizada.getMonth() + 1}/${dataAtualizada.getFullYear()}`,
                 endereco: endereco,
                 telefone: telefone,
                 doencaCronica: doencaCronica
@@ -57,7 +58,7 @@ function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual,
         <div className={styles.modal}>
             <div className={styles.modal_content}>
                 <div className={styles.modal_header}>
-                    <h4 className={styles.modal_title}>Editar paciente</h4>
+                    <h4 className={styles.modal_title}>{cpfAtual === ""?"Criar paciente":"Editar paciente"}</h4>
                 </div>
                 <div className={styles.modal_body}>
                     <form className={styles.conteudo}>

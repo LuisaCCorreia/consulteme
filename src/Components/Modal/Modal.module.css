@@ -40,6 +40,14 @@
     width: 300px;
 }
 
+.conteudo select{
+    display: block;
+    margin-bottom: 25px;
+    margin-left: 85px;
+    font-size: 18px;
+    width: 310px;
+}
+
 .modal_footer {
     padding: 10px;
     float: right;

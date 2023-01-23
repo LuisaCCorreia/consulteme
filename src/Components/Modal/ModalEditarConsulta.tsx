@@ -35,13 +35,14 @@ function Modal({statusAtual, exameAtual, diagnosticoAtual, id ,receitaAtual,setS
         <div className={styles.modal}>
             <div className={styles.modal_content}>
                 <div className={styles.modal_header}>
-                    <h4 className={styles.modal_title}></h4>
+                    <h4 className={styles.modal_title}>Editar consulta</h4>
                 </div>
                 <div className={styles.modal_body}>
                     <form className={styles.conteudo}>
                         <select
                         value={status}
                         onChange={(e)=>{setStatus(e.target.value)}}>
+                            <option value={"FILA"}>FILA</option>
                             <option value={"CONCLUIDA"}>CONCLUIDA</option>
                             <option value={"CANCELADA"}>CANCELADA</option>
                         </select>                      
