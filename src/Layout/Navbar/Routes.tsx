@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Atendentes from "../../Paginas/Atendentes/Atendentes";
 import DetalheAtendente from "../../Paginas/Atendentes/DetalheAtendente";
 import Consultas from "../../Paginas/Consultas/Consultas";
-import DetalheConsultas from "../../Paginas/Consultas/DetalheConsultas";
 import Medicos from "../../Paginas/Medicos/Medicos";
 import DetalheMedico from "../../Paginas/Medicos/DetalheMedico";
 import Pacientes from "../../Paginas/Pacientes/Pacientes";
@@ -23,7 +22,6 @@ function Rotas(){
                 <Route path="/atendentes" element={<Atendentes/>}/>
                 <Route path="/atendentes/:id" element={<DetalheAtendente/>}/>
                 <Route path="/consultas" element={<Consultas/>}/>
-                <Route path="/consultas/:id" element={<DetalheConsultas/>}/>
                 <Route path="/medicos" element={<Medicos/>}/>
                 <Route path="/medicos/:id" element={<DetalheMedico/>}/>
                 <Route path="/pacientes" element={<Pacientes/>}/>

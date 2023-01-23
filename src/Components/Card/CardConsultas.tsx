@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './Card.module.css'
-import {AiOutlineEye} from 'react-icons/ai'
+import { AiOutlineEdit } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import ModalEditarConsulta from "../Modal/ModalEditarConsulta";
 
 
 interface CardStateProps {
@@ -15,12 +16,12 @@ interface CardStateProps {
 
 
 function CardConsulta(props: CardStateProps) {
+    const [show, setShow] = useState(false)
 
 const navigate = useNavigate();
 
-    function onClick() {
-       navigate(`/consultas/${props.id}`)
-        
+    function mostrarModalEdicao() {
+       setShow(true) 
     }
 
     return (
@@ -31,8 +32,16 @@ const navigate = useNavigate();
                 <p>Diagnóstico: {props.diagnostico}</p>
                 <p>Receita: {props.receita}</p>
                 
-                <button className={styles.botaoDetalhe} onClick={onClick}><AiOutlineEye/></button>
+                <button className={styles.botaoDetalhe} onClick={mostrarModalEdicao}><AiOutlineEdit/></button>
             </div>
+            <ModalEditarConsulta 
+                id={props.id} 
+                statusAtual={props.status} 
+                exameAtual={props.exame} 
+                diagnosticoAtual={props.diagnostico} 
+                receitaAtual={props.receita} 
+                setShow={setShow} 
+                show={show}/>
         </div>
     )
 }
