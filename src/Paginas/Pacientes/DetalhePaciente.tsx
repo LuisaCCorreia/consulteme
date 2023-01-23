@@ -12,13 +12,13 @@ function DetalhePaciente() {
     const [showConsulta, setShowConsulta] = useState<boolean>(false);
     const [crm, setCrm] = useState("")
     const {id} = useParams();
-    const [listaPacientes, setListaPacielistaPacientes] = useState<any>({});
+    const [listaPacientes, setListaPacientes] = useState<any>({});
 
     async function carregarTodosPacientes() {
 
         const response = await axios.get(`http://localhost:8080/api/v1/atendente/buscar-paciente/${id}`);
 
-        setListaPacielistaPacientes(response.data)
+        setListaPacientes(response.data)
     }
 
     useEffect(()=>{
@@ -40,7 +40,7 @@ function DetalhePaciente() {
             nome: "Atendente logado"
         })
 
-        setListaPacielistaPacientes(response.data)
+        setListaPacientes(response.data)
     }
 
     
@@ -52,7 +52,7 @@ function DetalhePaciente() {
             }}><AiOutlinePlus/></button>
         </div>
     )
-
+            console.log(listaPacientes)
     return(
         
         <div>

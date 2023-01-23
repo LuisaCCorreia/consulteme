@@ -14,11 +14,11 @@ interface ModalProps {
 }
 
 function Modal({cpfAtual, nomeCompletoAtual, dataNascimentoAtual, enderecoAtual, telefoneAtual, doencaCronicaAtual,setShow, show}:ModalProps) {
-    const [cpf, setCpf] = useState<string>(cpfAtual);
-    const [nomeCompleto, setNomeCompleto] = useState<string>(nomeCompletoAtual);
-    const [dataNascimento, setdataNascimento] = useState<string>(dataNascimentoAtual);
-    const [endereco, setEndereco] = useState<string>(enderecoAtual);
-    const [telefone, setTelefone] = useState<string>(telefoneAtual);
+    const [cpf, setCpf] = useState<string>(cpfAtual??"");
+    const [nomeCompleto, setNomeCompleto] = useState<string>(nomeCompletoAtual??"");
+    const [dataNascimento, setdataNascimento] = useState<string>(dataNascimentoAtual??"");
+    const [endereco, setEndereco] = useState<string>(enderecoAtual??"");
+    const [telefone, setTelefone] = useState<string>(telefoneAtual??"");
     const [doencaCronica, setDoencaCronica] = useState<string>(doencaCronicaAtual?doencaCronicaAtual:"");
 
     async function criar() {

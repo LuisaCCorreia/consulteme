@@ -39,15 +39,8 @@ function DetalheMedico() {
 
     async function apagar() {
 
-        const response = await axios.delete(`http://localhost:8080/api/v1/gerente/deletar-medico/${id}`);
-        setListaMedicos({});
+        await axios.delete(`http://localhost:8080/api/v1/gerente/deletar-medico/${id}`);
         navigate('/medicos');
-
-        await axios.post('http://localhost:5000/', {
-                            ocupacao: "Gerente",
-                            acao: `Apagou o médico ${listaMedicos.nome}`,
-                            nome: "Gerente logado"
-        })
 
     }
 
@@ -59,7 +52,13 @@ function DetalheMedico() {
     const botoes = (
         <div>
             <button onClick={() => {setShow(true)}} className={styles.botaoEditar}><AiOutlineEdit/></button>
-            <button className={styles.botaoApagar} onClick={apagar}><AiFillDelete/></button>
+            <button className={styles.botaoApagar} onClick={async ()=>{
+                apagar();
+                await axios.post('http://localhost:5000/', {
+                    ocupacao: "Gerente",
+                    acao: `Apagou o médico ${listaMedicos.nome}`,
+                    nome: "Gerente logado"
+                })}}><AiFillDelete/></button>
         </div>
     )
 
