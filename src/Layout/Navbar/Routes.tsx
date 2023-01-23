@@ -6,7 +6,7 @@ import Medicos from "../../Paginas/Medicos/Medicos";
 import DetalheMedico from "../../Paginas/Medicos/DetalheMedico";
 import Pacientes from "../../Paginas/Pacientes/Pacientes";
 import DetalhePaciente from "../../Paginas/Pacientes/DetalhePaciente";
-import Navbar from "./Navbar";
+
 import HomeNaoLogada from "../../Paginas/HomeNaoLogada/index";
 import Login from "../../Paginas/Login/login";
 import LoginAtendente from "../../Paginas/Login/loginAtendente";
@@ -17,7 +17,7 @@ import LoginMedico from "../../Paginas/Login/loginMedico";
 function Rotas(){
     return(
         <Router>
-            <Navbar/>
+            
             <Routes>
                 <Route path="/" element= {<HomeNaoLogada/>} />
                 <Route path="/loginAtendente" element= {<LoginAtendente/>} />
