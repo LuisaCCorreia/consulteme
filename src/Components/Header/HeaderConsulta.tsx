@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import Logo from '../../assets/logo.png';
 
-export default function HeaderSecretaria() {
+export default function HeaderConsulta() {
   
     
   return (
@@ -16,16 +16,15 @@ export default function HeaderSecretaria() {
         <Link to="/">
           <img src={Logo} alt="Logo" id="logo"></img>
         </Link>
-        
         <ul className="navAtendente">
-        <div className='divAtiva'>
           <Link to="/atendentes">
-            <li className='liPagAtendente'>Atendentes</li>
+            <li className='liNav'>Atendentes</li>
+          </Link>
+          <div className='divAtiva'>
+          <Link to="/consultas">
+            <li className='liPagConsultas'>Consultas</li>
           </Link>
           </div>
-          <Link to="/consultas">
-            <li className='liNav'>Consultas</li>
-          </Link>
           <Link to="/medicos">
             <li className='liNav'>Médicos</li>
           </Link>

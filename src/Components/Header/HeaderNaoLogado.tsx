@@ -32,11 +32,8 @@ export default function HeaderNaoLogado() {
           <Link to="/loginPaciente">
             <li> Faça login </li>
         </Link>
-        <Link to="/cadastro">
-            <li className="negrito">ou cadastre-se</li>
-            </Link>
           </ul>
-          <Link to="/loginPaciente">
+          <Link to="/loginAtendente">
             <img src={Perfil} alt="Foto de perfil" id="fotoPerfil"></img>
           </Link>
         </div>

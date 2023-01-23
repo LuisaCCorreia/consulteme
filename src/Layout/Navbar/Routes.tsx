@@ -9,7 +9,10 @@ import DetalhePaciente from "../../Paginas/Pacientes/DetalhePaciente";
 import Navbar from "./Navbar";
 import HomeNaoLogada from "../../Paginas/HomeNaoLogada/index";
 import Login from "../../Paginas/Login/login";
-import Cadastro from "../../Paginas/Cadastro/Cadastro"
+import LoginAtendente from "../../Paginas/Login/loginAtendente";
+import LoginGerente from "../../Paginas/Login/loginGerente";
+import LoginMedico from "../../Paginas/Login/loginMedico";
+
 
 function Rotas(){
     return(
@@ -17,8 +20,9 @@ function Rotas(){
             <Navbar/>
             <Routes>
                 <Route path="/" element= {<HomeNaoLogada/>} />
-                <Route path="/loginPaciente" element= {<Login/>} />
-                <Route path="/cadastro" element= {<Cadastro/>} />
+                <Route path="/loginAtendente" element= {<LoginAtendente/>} />
+                <Route path="/loginGerente" element= {<LoginGerente/>} />
+                <Route path="/loginMedico" element= {<LoginMedico/>} />
                 <Route path="/atendentes" element={<Atendentes/>}/>
                 <Route path="/atendentes/:id" element={<DetalheAtendente/>}/>
                 <Route path="/consultas" element={<Consultas/>}/>

@@ -7,6 +7,9 @@ import Modal from "../../Components/Modal/Modal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import Header from '../../Components/Header/HeaderMedico';
+import Footer from '../../Components/Footer/footer';
+
 function DetalheMedico() {
     const [show, setShow] = useState<boolean>(false)
     const {id} = useParams();
@@ -63,6 +66,7 @@ function DetalheMedico() {
     )
 
     return(
+        <><Header/>
         <div>
 
             {
@@ -82,6 +86,8 @@ function DetalheMedico() {
                 show={show}
             />
         </div>
+        <Footer classe="footer"/>
+        </>
     )
 }
 

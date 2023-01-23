@@ -5,18 +5,18 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
 import HeaderNaoLogado from '../../Components/Header/HeaderNaoLogado';
 import Footer from '../../Components/Footer/footer';
 
 
-function Cadastro() {
+function Login() {
     
 return (
     <>
       <HeaderNaoLogado />
 
-      
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -31,31 +31,22 @@ return (
             Entrar
           </Typography>
           <Box component="form">
-            
-          <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="nome"
-              label="Nome Completo"
-              name="nome"
-              autoComplete="nome"
-            />
             <TextField
               margin="normal"
               required
               fullWidth
               id="email"
-              label="E-mail"
+              label="Email Address"
               name="email"
               autoComplete="email"
+              autoFocus
             />
             <TextField
               margin="normal"
               required
               fullWidth
               name="password"
-              label="Senha"
+              label="Password"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -66,17 +57,31 @@ return (
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Cadastrar
+              Sign In
             </Button>
+
+            <Grid container>
+              <Grid item xs>
+              <Link to="/">
+                  Esqueceu a senha?
+                </Link>
+              </Grid>
+              <Grid item>
+              <Link to="/cadastro">
+                  {"Não tem uma conta?"} <br></br> {"Faça seu cadastro"}
+                </Link>
+              </Grid>
+            </Grid>
 
           </Box>
         </Box>
         
-      </Container>
+      </Container>  
+      
       <Footer classe="footer" />
     </>
   );
 
 }
 
-export default Cadastro;
+export default Login;

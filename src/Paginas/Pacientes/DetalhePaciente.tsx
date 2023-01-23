@@ -7,6 +7,9 @@ import CardDetalhePaciente from '../../Components/Card/CardDetalhePaciente';
 import ModalNovaConsulta from "../../Components/Modal/ModalNovaConsulta";
 import ModalPaciente from "../../Components/Modal/ModalPaciente";
 
+import Header from '../../Components/Header/HeaderPaciente';
+import Footer from '../../Components/Footer/footer';
+
 function DetalhePaciente() {
     const [show, setShow] = useState<boolean>(false);
     const [showConsulta, setShowConsulta] = useState<boolean>(false);
@@ -54,7 +57,7 @@ function DetalhePaciente() {
     )
             console.log(listaPacientes)
     return(
-        
+        <><Header/>
         <div>
             <CardDetalhePaciente
                 botoes={botoes} 
@@ -90,6 +93,8 @@ function DetalhePaciente() {
                 setShow={setShowConsulta}
             />
         </div>
+        <Footer classe="footer"/>
+        </>
     )
 }
 

@@ -2,6 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import CardConsultas from "../../Components/Card/CardConsultas";
 
+import Header from '../../Components/Header/HeaderConsulta';
+import Footer from '../../Components/Footer/footer';
+
 interface Consulta {
     id: string,
     status:string,
@@ -26,6 +29,7 @@ function Consultas () {
     },[])
     
     return(
+        <><Header/>
         <div>            
             {listaConsultas.length > 0 && 
                 listaConsultas.map(({
@@ -47,6 +51,8 @@ function Consultas () {
                     )
                 })}
         </div>
+        <Footer classe='footer'/>
+        </>
     )
 }
 

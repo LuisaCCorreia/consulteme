@@ -3,7 +3,8 @@ import Card from "../../Components/Card/Card";
 import BarraBusca from "../../Components/BarraBusca/BarraBusca";
 import axios from 'axios'
 
-
+import Header from '../../Components/Header/HeaderMedico';
+import Footer from '../../Components/Footer/footer';
 
 
 interface Medico {
@@ -33,7 +34,10 @@ function Medicos() {
         setListaMedicos([medicoEspecifico.data])
     }
 
-    return(<div>
+    return(
+        <><Header/>
+    <div>
+        
         <BarraBusca regiao="Médicos" buscar={buscar} busca={busca} setBusca={setBusca}/>                 
         {listaMedicos.length > 0 && listaMedicos.map((item:Medico, key:number) => {
             return(
@@ -47,7 +51,8 @@ function Medicos() {
             )
         })}
     </div>
-        
+    <Footer classe='footer'/>
+        </>
     )
 }
 

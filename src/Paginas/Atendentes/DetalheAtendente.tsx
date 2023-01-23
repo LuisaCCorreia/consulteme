@@ -7,6 +7,9 @@ import Modal from "../../Components/Modal/Modal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import Header from "../../Components/Header/HeaderAtendente";
+import Footer from "../../Components/Footer/footer";
+
 function DetalheAtendente() {
     const [show, setShow] = useState<boolean>(false);
     const navigate = useNavigate();
@@ -59,6 +62,7 @@ function DetalheAtendente() {
     )
 
     return(
+        <><Header/>
         <div>
             <CardDetalhe
                 regiao="Atendente"
@@ -75,6 +79,8 @@ function DetalheAtendente() {
                 show={show}
             />
         </div>
+        <Footer classe="footer"/>
+            </>
     )
 }
 

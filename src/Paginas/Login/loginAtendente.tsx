@@ -28,7 +28,7 @@ return (
           }}
         >
           <Typography component="h1" variant="h5">
-            Entrar
+            Login Atendente
           </Typography>
           <Box component="form">
             <TextField
@@ -59,19 +59,6 @@ return (
             >
               Sign In
             </Button>
-
-            <Grid container>
-              <Grid item xs>
-              <Link to="/">
-                  Esqueceu a senha?
-                </Link>
-              </Grid>
-              <Grid item>
-              <Link to="/cadastro">
-                  {"Não tem uma conta?"} <br></br> {"Faça seu cadastro"}
-                </Link>
-              </Grid>
-            </Grid>
 
           </Box>
         </Box>

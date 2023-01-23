@@ -16,22 +16,21 @@ export default function HeaderSecretaria() {
         <Link to="/">
           <img src={Logo} alt="Logo" id="logo"></img>
         </Link>
-        
         <ul className="navAtendente">
-        <div className='divAtiva'>
           <Link to="/atendentes">
-            <li className='liPagAtendente'>Atendentes</li>
+            <li className='liNav'>Atendentes</li>
           </Link>
-          </div>
           <Link to="/consultas">
             <li className='liNav'>Consultas</li>
           </Link>
           <Link to="/medicos">
             <li className='liNav'>Médicos</li>
           </Link>
+          <div className='divAtiva'>
           <Link to="/pacientes">
-            <li className='liNav'>Pacientes</li>
+            <li className='liPagPacientes'>Pacientes</li>
           </Link>
+          </div>
         </ul>
         
       </div>
