@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import BarraBusca from "../../Components/BarraBusca/BarraBusca";
 import CardConsultas from "../../Components/Card/CardConsultas";
 
 interface Consulta {

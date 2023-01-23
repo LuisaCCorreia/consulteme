@@ -8,7 +8,6 @@ import ModalEditarConsulta from "../../Components/Modal/ModalEditarConsulta";
 function DetalheMedico() {
     const [show, setShow] = useState<boolean>(false)
     const {id} = useParams();
-    const consultas = require('../../BD/Consulta.json');
 
     const botoes = (
         <div>
@@ -18,14 +17,14 @@ function DetalheMedico() {
 
     return(
         <div>
-            <CardDetalhe
+          {  /*<CardDetalhe
                 botoes={botoes}  
                 status={consultas[ parseInt(id as string)].status} 
                 exame={consultas[ parseInt(id as string)].exame} 
                 diagnostico={consultas[ parseInt(id as string)].diagnostico} 
-                receita={consultas[ parseInt(id as string)].receita}            
-            />
-            
+                receita={consultas[ parseInt(id as string)].receita}   />  */         
+          
+          }
             <ModalEditarConsulta
                 setShow={setShow}
                 show={show}

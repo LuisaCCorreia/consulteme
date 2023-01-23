@@ -12,7 +12,7 @@ function DetalhePaciente() {
     const [showConsulta, setShowConsulta] = useState<boolean>(false);
     const [crm, setCrm] = useState("")
     const {id} = useParams();
-    const [listaPacientes, setListaPacielistaPacientes] = useState<any>([]);
+    const [listaPacientes, setListaPacielistaPacientes] = useState<any>({});
 
     async function carregarTodosPacientes() {
 
