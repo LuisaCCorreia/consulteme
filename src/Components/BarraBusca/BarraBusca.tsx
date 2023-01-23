@@ -6,11 +6,13 @@ import ModalPaciente from "../../Components/Modal/ModalPaciente";
 import axios from 'axios';
 
 interface BarraBuscaProps {
-    regiao:string
+    regiao:string, 
+    buscar:Function,
+    busca:string,
+    setBusca:Function
 }
 
-function BarraBusca({regiao}:BarraBuscaProps) {
-    const [busca, setBusca] = useState<string>("");
+function BarraBusca({regiao, buscar, busca, setBusca}:BarraBuscaProps) {
     const [show, setShow] = useState<boolean>(false);
 
     async function criar(email:string, senha:string, nome:string, crm?:string) {
@@ -32,8 +34,11 @@ function BarraBusca({regiao}:BarraBuscaProps) {
                 "id": 1
             }});
 
-        } if (regiao === "Pacientes") {}
+        }
     }
+
+    
+
     return(
         <div>
             <form>
@@ -43,7 +48,7 @@ function BarraBusca({regiao}:BarraBuscaProps) {
                     onChange={(e) => {setBusca(e.target.value)}}
                     className={styles.busca}
                 />
-                <button className={styles.botaoBusca}> <AiOutlineSearch/></button> 
+                <button className={styles.botaoBusca} onClick = {(e) => {e.preventDefault(); buscar()}}> <AiOutlineSearch/></button> 
                 <button className={styles.botaoCriar} onClick = {(e) => {
                     e.preventDefault();
                     setShow(true)}

@@ -15,6 +15,8 @@ interface Paciente {
 function Pacientes () {
 
     const [listaPacientes, setListaPacielistaPacientes] = useState<any>([]);
+    const [busca, setBusca] = useState<string>("");
+    let pacienteEspecifico:any;
 
     async function carregarTodosPacientes() {
 
@@ -26,11 +28,18 @@ function Pacientes () {
     useEffect(()=>{
         carregarTodosPacientes();
     },[])
+
+    console.log(listaPacientes)
+
+    async function buscar() {
+        pacienteEspecifico = await
+            axios.get(`http://localhost:8080/api/v1/atendente/buscar-paciente/${busca}`);
+    }
     
     return(
         <div>
-            <BarraBusca regiao={"Pacientes"}/>                 
-            {listaPacientes.length > 0 && 
+            <BarraBusca regiao={"Pacientes"} buscar={buscar} busca={busca} setBusca={setBusca}/>                 
+            {listaPacientes.length > 0 && listaPacientes !== undefined && 
                 listaPacientes.map(({
                     cpf, 
                     nome, 

@@ -29,7 +29,7 @@ function Atendentes(){
 
     return(
         <><Header /><div>
-            <BarraBusca regiao={"Atendentes"} />
+            <BarraBusca regiao={"Atendentes"} buscar={()=>{}} busca={""} setBusca={()=>{}} />
             {listaAtendentes.length > 0 && listaAtendentes.map((item: Atendente, key: number) => {
                 return (
                     <Card

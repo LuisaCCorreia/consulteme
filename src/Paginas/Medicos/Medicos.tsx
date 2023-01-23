@@ -28,7 +28,7 @@ function Medicos() {
     },[])
 
     return(<div>
-        <BarraBusca regiao="Médicos"/>                 
+        <BarraBusca regiao="Médicos" buscar={()=>{}} busca={""} setBusca={()=>{}}/>                 
         {listaMedicos.length > 0 && listaMedicos.map((item:Medico, key:number) => {
             return(
                <Card 
